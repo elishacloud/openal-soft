@@ -23,12 +23,12 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v141_xp</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -42,10 +42,6 @@
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">OpenAL32</TargetName>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">OpenAL32</TargetName>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(SolutionDir)bin\Intermediate\$(ProjectName)\$(Configuration)\</IntDir>
@@ -57,22 +53,17 @@
     <ClCompile>
       <AdditionalIncludeDirectories>$(SolutionDir);$(SolutionDir)include;$(SolutionDir)common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /w14640</AdditionalOptions>
-      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ConformanceMode>true</ConformanceMode>
       <DisableSpecificWarnings>4065;4091;4127;4244;4268;4324;4640;5030;5051</DisableSpecificWarnings>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <LanguageStandard>stdcpp14</LanguageStandard>
-      <Optimization>MaxSpeed</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_WIN32;NOMINMAX;_CRT_SECURE_NO_WARNINGS;RESTRICT=__restrict;AL_LIBTYPE_STATIC;AL_ALEXT_PROTOTYPES;ALC_API=__declspec(dllexport);AL_API=__declspec(dllexport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_WIN32;NOMINMAX;_CRT_SECURE_NO_WARNINGS;RESTRICT=__restrict;AL_LIBTYPE_STATIC;AL_ALEXT_PROTOTYPES;ALC_API=__declspec(dllexport);AL_API=__declspec(dllexport);PKEY_AudioEndpoint_FormFactor=PKEY_OpenAL_AudioEndpoint_FormFactor;PKEY_AudioEndpoint_GUID=PKEY_OpenAL_AudioEndpoint_GUID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>
       </DebugInformationFormat>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AL_BUILD_LIBRARY;AL_ALEXT_PROTOTYPES;ALC_API=__declspec(dllexport);AL_API=__declspec(dllexport);_WIN32;NOMINMAX;RESTRICT=__restrict;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\";OpenAL_EXPORTS</PreprocessorDefinitions>
@@ -86,33 +77,18 @@
     </Midl>
     <Link>
       <AdditionalDependencies>Release\common.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
-      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <SubSystem>Console</SubSystem>
     </Link>
-    <ProjectReference>
-      <LinkLibraryDependencies>false</LinkLibraryDependencies>
-    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <AdditionalOptions>%(AdditionalOptions) /w14640</AdditionalOptions>
-      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ConformanceMode>true</ConformanceMode>
       <DisableSpecificWarnings>4065;4127;4268;4324;5030;5051</DisableSpecificWarnings>
-      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <LanguageStandard>stdcpp14</LanguageStandard>
-      <Optimization>MaxSpeed</Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <UseFullPaths>false</UseFullPaths>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <WarningLevel>Level4</WarningLevel>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AL_BUILD_LIBRARY;AL_ALEXT_PROTOTYPES;ALC_API=__declspec(dllexport);AL_API=__declspec(dllexport);_WIN32;NOMINMAX;RESTRICT=__restrict;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR="Release";OpenAL_EXPORTS</PreprocessorDefinitions>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
@@ -127,15 +103,8 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
-      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <SubSystem>Console</SubSystem>
     </Link>
-    <ProjectReference>
-      <LinkLibraryDependencies>false</LinkLibraryDependencies>
-    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="al\auxeffectslot.cpp" />
