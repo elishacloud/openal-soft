@@ -3,10 +3,7 @@
   <ImportGroup Label="PropertySheets" />
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalDependencies>$(SolutionDir)bin\$(Configuration)\OpenAL32.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)bin\$(Configuration)\OpenAL32.lib;winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <Lib>
-      <AdditionalDependencies>$(SolutionDir)bin\$(Configuration)\OpenAL32.lib</AdditionalDependencies>
-    </Lib>
   </ItemDefinitionGroup>
 </Project>

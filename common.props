@@ -3,10 +3,7 @@
   <ImportGroup Label="PropertySheets" />
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalDependencies>$(SolutionDir)bin\$(Configuration)\common.lib;winmm.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)bin\$(Configuration)\common.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
-    <Lib>
-      <AdditionalDependencies>$(SolutionDir)bin\$(Configuration)\common.lib;winmm.lib</AdditionalDependencies>
-    </Lib>
   </ItemDefinitionGroup>
 </Project>

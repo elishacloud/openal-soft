@@ -25,6 +25,7 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v141_xp</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -62,7 +63,7 @@
       <LanguageStandard>stdcpp14</LanguageStandard>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_WIN32;NOMINMAX;_CRT_SECURE_NO_WARNINGS;RESTRICT=__restrict;AL_LIBTYPE_STATIC;AL_ALEXT_PROTOTYPES;ALC_API=__declspec(dllexport);AL_API=__declspec(dllexport);PKEY_AudioEndpoint_FormFactor=PKEY_OpenAL_AudioEndpoint_FormFactor;PKEY_AudioEndpoint_GUID=PKEY_OpenAL_AudioEndpoint_GUID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDLL;WIN32;NDEBUG;_WINDOWS;_WIN32_WINNT=0x0501;NOMINMAX;_CRT_SECURE_NO_WARNINGS;RESTRICT=__restrict;AL_LIBTYPE_STATIC;AL_ALEXT_PROTOTYPES;ALC_API=__declspec(dllexport);AL_API=__declspec(dllexport);PKEY_AudioEndpoint_FormFactor=PKEY_OpenAL_AudioEndpoint_FormFactor;PKEY_AudioEndpoint_GUID=PKEY_OpenAL_AudioEndpoint_GUID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
     </ClCompile>
     <Link>
@@ -72,6 +73,8 @@
     </Link>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalOptions>/ignore:4221 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -81,7 +84,7 @@
       <LanguageStandard>stdcpp14</LanguageStandard>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <WarningLevel>Level4</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_WIN32;NOMINMAX;_CRT_SECURE_NO_WARNINGS;RESTRICT=__restrict;AL_LIBTYPE_STATIC;AL_ALEXT_PROTOTYPES;ALC_API=__declspec(dllexport);AL_API=__declspec(dllexport);PKEY_AudioEndpoint_FormFactor=PKEY_OpenAL_AudioEndpoint_FormFactor;PKEY_AudioEndpoint_GUID=PKEY_OpenAL_AudioEndpoint_GUID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDLL;WIN32;_DEBUG;_WINDOWS;_WIN32_WINNT=0x0501;NOMINMAX;_CRT_SECURE_NO_WARNINGS;RESTRICT=__restrict;AL_LIBTYPE_STATIC;AL_ALEXT_PROTOTYPES;ALC_API=__declspec(dllexport);AL_API=__declspec(dllexport);PKEY_AudioEndpoint_FormFactor=PKEY_OpenAL_AudioEndpoint_FormFactor;PKEY_AudioEndpoint_GUID=PKEY_OpenAL_AudioEndpoint_GUID;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)include;$(ProjectDir)common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -91,6 +94,8 @@
     </Link>
     <Lib>
       <TargetMachine>MachineX86</TargetMachine>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalOptions>/ignore:4221 %(AdditionalOptions)</AdditionalOptions>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
