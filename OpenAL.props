@@ -3,10 +3,10 @@
   <ImportGroup Label="PropertySheets" />
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalDependencies>$(SolutionDir)bin\$(Configuration)\common.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)bin\$(Configuration)\OpenAL32.lib</AdditionalDependencies>
     </Link>
     <Lib>
-      <AdditionalDependencies>$(SolutionDir)bin\$(Configuration)\common.lib</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)bin\$(Configuration)\OpenAL32.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
 </Project>
